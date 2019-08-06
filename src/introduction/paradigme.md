@@ -91,8 +91,6 @@ Déroutant au premier abord on en découvre vite l'énorme potentiel.
 
 Tout ce sucre syntaxique est absolument gratuit en terme de performance, c'est la toute la beauté de Rust: Une expression lambda et son équivalent en boucle procédurale seront optimisé de la même façon en bout de compilation. 
 
-*exemple : https://lib.rs/crates/cargo-inspect* //TODO: exemple avec simple boucle for + closure 
-
 Grâce au système de *lifetime* et au *borrow checker* sur lesquels on reviendra plus tard, Rust n'a pas besoin de GC.
 
 
