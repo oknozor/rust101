@@ -3,3 +3,7 @@ authors = ["okno"]
 multilingual = false
 src = "src"
 title = "Rust 101"
+
+[output.html]
+additional-css = ["ferris.css"]
+additional-js = ["ferris.js"]
