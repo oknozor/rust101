@@ -50,7 +50,7 @@ En effet **une valeur ne peut avoir qu'un possesseur à la fois**, le binding de
 
 ```
 error[E0382]: borrow of moved value: `s1`
- --> pouet.rs:6:20
+ --> main.rs:6:20
   |
 3 |     let s1 = String::from("Arrrrrggh!");
   |         -- move occurs because `s1` has type `std::string::String`, which does not implement the `Copy` trait
@@ -60,6 +60,8 @@ error[E0382]: borrow of moved value: `s1`
 6 |     println!("{}", s1);
   |                    ^^ value borrowed here after move
 ```
+
+
 
 Donc, contrairement au primitive, les structures stockées sur le tas ne sont pas copiées automatiquement, voilà comment on peut s'en sortir : 
 
