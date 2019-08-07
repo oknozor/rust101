@@ -4,7 +4,7 @@ Un des gros avantages du language et également un des point les plus déroutant
 
 Mais qu'est ce qu'on veut dire par là au juste ? 
 
-En fait Rust s'inspire des géants qui ont fait leurs preuves, de ce fait il offre une large pallette de style de programmation : 
+En fait Rust s'inspire des géants qui ont fait leurs preuves, de ce fait il offre une large pallette de styles de programmation : 
 
 
 ## Programation Fonctionnelle
@@ -24,7 +24,7 @@ println!("{:?}", double);
 ```
 ## Pattern matching
 
-Pour les développeurs qui connaissent Haskell, le concept sera relativement facile à aborder. Pour les autres c'est l'occasion de découvrir une des features les plus intéressante de Rust.
+Pour les développeurs qui connaissent Haskell, le concept sera relativement facile à aborder. Pour les autres c'est l'occasion de découvrir une des fonctionnalité les plus pratique de du language.
 
 ```rust
 # fn main() {
@@ -46,16 +46,15 @@ En rust les types sont statiques mais optionnel lorsque le compilateur parvient 
 # fn main() {
     let x = 42; 
     let y = x + 9;
-    let message: &str = "bienvenue dans la zone";
 
-    println!("{} {}", message, y);
+    println!("bienvenue dans la zone {}", message, y);
 # }
 ```
 
 ## Orienté objet 
 
 Dans une certaine mesure Rust permet de faire de la POO, attention cependant les concepts sont totalement différent de ce dont vous avez probablement l'habitude avec Java. 
-Impossible en rust de mélanger data et comportement, il n'y a donc pas d'héritage possible mais un système de trait (comparable au interface Java). 
+Il est impossible en rust de mélanger data et comportement, il n'y a donc pas d'héritage possible mais un système de trait (comparable au interface Java). 
 Déroutant au premier abord on en découvre vite l'énorme potentiel.  
 
 ```rust 

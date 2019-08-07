@@ -1,6 +1,6 @@
 # Rapide et sûr
     
-Au départ rust est un language de programmation système, il a donc été créé avec les contraintes liées à ce domaine : Sécurité et rapidité. 
+Au départ rust est un language de programmation système avec l'ambition de concurrencer C++, il a donc été créé avec les contraintes liées à ce domaine : Sécurité et rapidité. 
 
 Mais qu'est ce qu'on veut dire quand ont parle de language *Memory safe* ? 
 
@@ -13,8 +13,8 @@ C'est ce qui rend C aussi puissant mais également si difficile à maitriser.
 
 En revanche en Java un certain nombre d'erreurs prédéfinies peuvent advenir au runtime et on aura bien souvent une idication précise sur l'origine du problème.
 
-Rust est donc un language dit *Memory safe*, mais il emmène cette logigue un peu plus loin : l'énorme différence avec ce qu'on connaissait jusque là c'est que les erreurs de mémoires sont vérifiées à la compilation pas au runtime. Comme le dit un vieux proverbe rustaceen :  
+Rust est donc un language dit *Memory safe*, mais il pousse le concept un peu plus loin : l'énorme différence avec ce qu'on connaissait jusque là c'est que les erreurs de mémoires sont vérifiées à la compilation pas au runtime. Comme le dit un vieux proverbe rustaceen :  
 
 > *"The safest program is the program that doesn't compile"*
 
-Pour autant cette prouesse technique à un coup, pour en arriver là Rust utilise deux concepts qui vous sont probablement étrangés : le *borrow checker*, et les *lifetimes*
+Pour en arriver là Rust utilise deux concepts qui vous sont probablement étrangés : le *borrow checker*, et les l'*ownership*
