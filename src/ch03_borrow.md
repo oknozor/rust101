@@ -2,7 +2,7 @@
 
 On commence doucement à entrer dans le vif du sujet. Les concept qu'on va évoquer ici sont propre à Rust et indubidablement difficile à appréhender.
 
-Toute la force de Rust réside dans ces trois concept : 
+Toute la force de Rust réside dans ces trois concepts :
 
 - L'emprunt (*Borrow checking*)
 - La propriété (*Ownership*)
@@ -16,12 +16,12 @@ La propriété est un concept simple à comprendre et pourtant difficile à mait
 Commençons par énnoncer les trois règles qui régissent ce concept: 
 
 - Toute valeur en Rust a une variable appelé sont possesseur (*owner*).
-- Il ne peut y avoir qu'un seul possesseur à la fois pour une variable. 
+- Il ne peut y avoir qu'un seul possesseur à la fois pour une valeur.
 - Quand le possesseur sort du contexte (*scope*), la valeur est éffacée.
 
 ### Heap vs. Stack, Copy vs. Clone
 
-Par défaut les primitives sont stockées sur la pile (*stack*), elle sont peu couteuse en mémoire et donc copié automatiquement lorsque l'ont cré un nouveau binding. 
+Par défaut les primitives sont stockées sur la pile (*stack*), elle sont peu couteuse en mémoire et donc copié automatiquement lorsque l'ont cré un nouveau binding.
 
 ```rust 
 # fn main() {
@@ -33,7 +33,7 @@ Par défaut les primitives sont stockées sur la pile (*stack*), elle sont peu c
 ```
 
 Au contraire les structures plus complexes comme `String` ici sont stockées dans le tas (*heap*).
-Si on reprend les trois règles de la propriété vu plus haut on peut devienner se qui va se passer ici. 
+Si on reprend les trois règles de la propriété vu plus haut on peut deviner se qui va se passer ici.
 
 ```rust, does_not_compile, ignore
 # #[allow(dead_code)]
@@ -45,7 +45,7 @@ Si on reprend les trois règles de la propriété vu plus haut on peut devienner
 # }
 ```
 
-Ça ne compile pas, le compilateur nous apprend que la variable à été déplacé avant usage. 
+Ça ne compile pas, le compilateur nous apprend que la variable à été déplacé avant usage.
 En effet **une valeur ne peut avoir qu'un possesseur à la fois**, le binding de `s1` à été supprimer avant qu'on l'appelle avec la macro `println`. 
 
 ```

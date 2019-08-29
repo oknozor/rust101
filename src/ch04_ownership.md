@@ -21,7 +21,7 @@ fn calculate_string_len(s: String) -> (String, usize) {
 ```
 
 Pour effectuer une opération aussi simple que retourner la longueur d'une chaine de caractères on est obligé de retourner un tuple avec une copie de la chaine.
-Heureusement on peut s'affranchir de tout ces salamalèques avec les références : 
+Heureusement on peut s'affranchir de tout ces salamalèques avec les références :
 
 ```rust
 fn main() {
@@ -91,6 +91,22 @@ let r2 = &mut s;
 
 println!("{}, {}", r1, r2);
 ```
+```
+   Compiling playground v0.0.1 (/playground)
+error[E0499]: cannot borrow `s` as mutable more than once at a time
+ --> src/main.rs:7:10
+  |
+6 | let r1 = &mut s;
+  |          ------ first mutable borrow occurs here
+7 | let r2 = &mut s;
+  |          ^^^^^^ second mutable borrow occurs here
+8 | 
+9 | println!("{}, {}", r1, r2);
+  |                    -- first borrow later used here
+```
+
+Comme pour les bases de données et la synchronisation de ressources dans un contexte de programmation concurrente Rust force l'utilisation du modèle lecteur/écrivaint. Il est donc possible d'avoir autant de référence immutable vers une valeur qu'on le souhaite mais une et une seule référence immutable.
+
 ## Validité 
 ``` rust, does_not_compile, ignore
 fn main() {
@@ -104,7 +120,21 @@ fn dangle() -> &String {
 }
 ```
 
-## Résumé 
+Ici on voit bien que la variable `s` va être supprimée par le *borrow checker* après l'éxécution de `dangle()`. La référence `&s` n'est donc pas valide, ça ne compile pas.
+
+```
+error[E0106]: missing lifetime specifier
+ --> src/main.rs:5:16
+  |
+5 | fn dangle() -> &String {
+  |                ^ help: consider giving it a 'static lifetime: `&'static`
+  |
+  = help: this function's return type contains a borrowed value, but there is no value for it to be borrowed from
+```
+
+On ne va pas s'attarder sur le concept de de validité ici, sachez simplement qu'il est possible d'indiquer au compilateur de façon explicite la durée de validité d'une référence avec les *lifetime*.
+
+## Résumé
 
 Comme la propriété, l'emprunt est régi par des règle simples :
 

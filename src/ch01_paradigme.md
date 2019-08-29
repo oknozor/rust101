@@ -9,7 +9,7 @@ En fait Rust s'inspire des géants qui ont fait leurs preuves, de ce fait il off
 
 ## Programation Fonctionnelle
 
-Rust permet de s'adonner au joies des monads et des closures ...etc
+Rust permet de s'adonner au joies des monades et des closures ...etc
 
 ```rust
 # fn main() {
@@ -28,12 +28,16 @@ Pour les développeurs qui connaissent Haskell, le concept sera relativement fac
 
 ```rust
 # fn main() {
-    let michel = "Michel";
+    pub enum Message {
+        Greeting(String),
+        Other
+    }
 
-    match michel {
-        "Michel"    => println!("Salut Michel"),
-        "Georgette" => println!("Salut Georgette"),
-        _           => panic!("Erreur prénom inconnu")
+    let salut_michel = Message::Greeting("michel");
+
+    match salut_michel {
+        Message::Greeting(prenom)    => println!("Salut {}", prenom),
+        Other(String) => println!("Message inconnue"),
     }
 # }
 ```
@@ -47,7 +51,7 @@ En rust les types sont statiques mais optionnel lorsque le compilateur parvient 
     let x = 42; 
     let y = x + 9;
 
-    println!("bienvenue dans la zone {}", message, y);
+    println!("bienvenue dans la zone {}", y);
 # }
 ```
 
@@ -86,6 +90,7 @@ Déroutant au premier abord on en découvre vite l'énorme potentiel.
 # println!("Ok!");
 # }
 ```
+
 ## Zero cost abstraction
 
 Tout ce sucre syntaxique est absolument gratuit en terme de performance, c'est la toute la beauté de Rust: Une expression lambda et son équivalent en boucle procédurale seront optimisé de la même façon en bout de compilation. 
