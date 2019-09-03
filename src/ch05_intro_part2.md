@@ -10,6 +10,6 @@ Tout cela peut être bien décourageant au premier abord. Rust n'est en effet pa
 
 C'est ce qu'on va voir maintenant en s'interressant au points suivant :
 
-- écosysème
-- software craft
-- et quelque exemples 
+- Écosystème
+- Software craft
+- Quelque exemples
