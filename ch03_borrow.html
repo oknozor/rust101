@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Emprunt - Rust 101</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="ferris.css">
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="préambule.html">Preambule</a></li><li><a href="ch00_introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li><a href="ch01_paradigme.html"><strong aria-hidden="true">1.1.</strong> Paradigme</a></li><li><a href="ch02_safe_and_fast.html"><strong aria-hidden="true">1.2.</strong> Rapide et sûr</a></li><li><a href="ch03_borrow.html" class="active"><strong aria-hidden="true">1.3.</strong> Emprunt</a></li><li><a href="ch04_ownership.html"><strong aria-hidden="true">1.4.</strong> Propriété</a></li></ol></li><li><a href="ch05_intro_part2.html"><strong aria-hidden="true">2.</strong> Dans la vrai vie</a></li><li><ol class="section"><li><a href="ch06_ecosysteme.html"><strong aria-hidden="true">2.1.</strong> Ecosystème</a></li><li><a href="ch07_craft.html"><strong aria-hidden="true">2.2.</strong> Software Craft</a></li><li><a href="ch08_examples.html"><strong aria-hidden="true">2.3.</strong> Exemples</a></li><li><a href="ch09_conclusion.html"><strong aria-hidden="true">2.4.</strong> Conclusion</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rust 101</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#emprunt-propriété-et-durée-de-vie" id="emprunt-propriété-et-durée-de-vie">Emprunt, propriété et durée de vie</a></h1>
+<p>On commence doucement à entrer dans le vif du sujet. Les concept qu'on va évoquer ici sont propre à Rust et indubidablement difficile à appréhender.</p>
+<p>Toute la force de Rust réside dans ces trois concepts :</p>
+<ul>
+<li>L'emprunt (<em>Borrow checking</em>)</li>
+<li>La propriété (<em>Ownership</em>)</li>
+<li>Les durée de vie (<em>Lifetimes</em>)</li>
+</ul>
+<p>C'est grâce à eux que rust se passe de Ramasse miette sans pour autant nous contraindre à gérer les allocations mémoire de façon manuelle. </p>
+<h2><a class="header" href="#ownership" id="ownership">Ownership</a></h2>
+<p>La propriété est un concept simple à comprendre et pourtant difficile à maitriser en pratique. 
+Commençons par énnoncer les trois règles qui régissent ce concept: </p>
+<ul>
+<li>Toute valeur en Rust a une variable appelé sont possesseur (<em>owner</em>).</li>
+<li>Il ne peut y avoir qu'un seul possesseur à la fois pour une valeur.</li>
+<li>Quand le possesseur sort du contexte (<em>scope</em>), la valeur est éffacée.</li>
+</ul>
+<h3><a class="header" href="#heap-vs-stack-copy-vs-clone" id="heap-vs-stack-copy-vs-clone">Heap vs. Stack, Copy vs. Clone</a></h3>
+<p>Par défaut les primitives sont stockées sur la pile (<em>stack</em>), elle sont peu couteuse en mémoire et donc copié automatiquement lorsque l'ont cré un nouveau binding.</p>
+<pre><pre class="playpen"><code class="language-rust"># fn main() {
+    let x = 51; 
+    let y = x;
+
+    println!(&quot;x: {}, y: {}&quot;, x, y);
+# }
+</code></pre></pre>
+<p>Au contraire les structures plus complexes comme <code>String</code> ici sont stockées dans le tas (<em>heap</em>).
+Si on reprend les trois règles de la propriété vu plus haut on peut deviner se qui va se passer ici.</p>
+<pre><code class="language-rust does_not_compile ignore"># #[allow(dead_code)]
+# fn main() {
+    let s1 = String::from(&quot;Arrrrrggh!&quot;);
+    let s2 = s1; 
+
+    println!(&quot;{}&quot;, s1);
+# }
+</code></pre>
+<p>Ça ne compile pas, le compilateur nous apprend que la variable à été déplacé avant usage.
+En effet <strong>une valeur ne peut avoir qu'un possesseur à la fois</strong>, le binding de <code>s1</code> à été supprimer avant qu'on l'appelle avec la macro <code>println</code>. </p>
+<pre><code>error[E0382]: borrow of moved value: `s1`
+ --&gt; main.rs:6:20
+  |
+3 |     let s1 = String::from(&quot;Arrrrrggh!&quot;);
+  |         -- move occurs because `s1` has type `std::string::String`, which does not implement the `Copy` trait
+4 |     let s2 = s1;
+  |              -- value moved here
+5 |
+6 |     println!(&quot;{}&quot;, s1);
+  |                    ^^ value borrowed here after move
+</code></pre>
+<p>Donc, contrairement au primitive, les structures stockées sur le tas ne sont pas copiées automatiquement, voilà comment on peut s'en sortir : </p>
+<pre><pre class="playpen"><code class="language-rust"># #[allow(dead_code)]
+# fn main() {
+    let s1 = String::from(&quot;Yeah!&quot;);
+    let s2 = s1.clone(); 
+
+    println!(&quot;{}&quot;, s1);
+# }
+</code></pre></pre>
+<p>Ici au lieu de déplacer la référence on fait une copie complète de <code>s1</code>, pas seulement de la référence vers les données stocké dans le tas, mais de l'entièreté de la variable. C'est une solution un peu radicale et heureusement il est possible de faire autrement. </p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ch02_safe_and_fast.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch04_ownership.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="ch02_safe_and_fast.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="ch04_ownership.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="ferris.js"></script>
+        
+
+        
+
+    </body>
+</html>

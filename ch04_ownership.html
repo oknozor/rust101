@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Propriété - Rust 101</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="ferris.css">
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="préambule.html">Preambule</a></li><li><a href="ch00_introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li><a href="ch01_paradigme.html"><strong aria-hidden="true">1.1.</strong> Paradigme</a></li><li><a href="ch02_safe_and_fast.html"><strong aria-hidden="true">1.2.</strong> Rapide et sûr</a></li><li><a href="ch03_borrow.html"><strong aria-hidden="true">1.3.</strong> Emprunt</a></li><li><a href="ch04_ownership.html" class="active"><strong aria-hidden="true">1.4.</strong> Propriété</a></li></ol></li><li><a href="ch05_intro_part2.html"><strong aria-hidden="true">2.</strong> Dans la vrai vie</a></li><li><ol class="section"><li><a href="ch06_ecosysteme.html"><strong aria-hidden="true">2.1.</strong> Ecosystème</a></li><li><a href="ch07_craft.html"><strong aria-hidden="true">2.2.</strong> Software Craft</a></li><li><a href="ch08_examples.html"><strong aria-hidden="true">2.3.</strong> Exemples</a></li><li><a href="ch09_conclusion.html"><strong aria-hidden="true">2.4.</strong> Conclusion</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rust 101</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#borrow-cheking" id="borrow-cheking">Borrow Cheking</a></h1>
+<h2><a class="header" href="#les-références" id="les-références">Les références</a></h2>
+<p>On à vu précédement que les règles de propriété pouvaient être très contraignantes, prennons un exemple simple :</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    let raffarinade = String::from(&quot;Je vous recommande la positive attitude.&quot;);
+    let (s2, len) = calculate_string_len(raffarinade);
+
+    println!(&quot;Cette raffarinade: \&quot;{}\&quot;, contient {} caractères&quot;, s2, len);
+}
+
+fn calculate_string_len(s: String) -&gt; (String, usize) {
+    let len = s.len();
+    (s.clone(), len)
+} 
+</code></pre></pre>
+<p>Pour effectuer une opération aussi simple que retourner la longueur d'une chaine de caractères on est obligé de retourner un tuple avec une copie de la chaine.
+Heureusement on peut s'affranchir de tout ces salamalèques avec les références :</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    let raffarinade = String::from(&quot;La faiblesse de vocabulaire signifie la faiblesse de penser.&quot;);
+    let len = calculate_string_len(&amp;raffarinade);
+
+    println!(&quot;Cette raffarinade: \&quot;{}\&quot;, contient {} caractères&quot;, raffarinade, len);
+}
+
+fn calculate_string_len(s: &amp;String) -&gt; usize {
+    s.len()
+} 
+</code></pre></pre>
+<h2><a class="header" href="#lecteurécrivains" id="lecteurécrivains">Lecteur/écrivains</a></h2>
+<p>En fait l'usage des références nous permet de manipuler une variable sans en acquérir la propriété. Mais que ce passe il si on veut modifier le contenue d'une référence ? </p>
+<pre><code class="language-rust does_not_compile ignore">fn main() {
+    let mut s = String::from(&quot;Jean&quot;);
+
+    change(&amp;mut s);
+}
+
+fn change(some_string: &amp;String) {
+    some_string.push_str(&quot;-Michel&quot;);
+}
+</code></pre>
+<p>Pour manipuler le contenue de la référence il faut pouvoir le <em>déréférencer</em>, et pour cela il faut avoir la permission d'en acquérir la propriété. </p>
+<pre><code>error[E0596]: cannot borrow `*some_string` as mutable, as it is behind a `&amp;` reference
+ --&gt; src/main.rs:8:5
+  |
+7 | fn change(some_string: &amp;String) {
+  |                        ------- help: consider changing this to be a mutable reference: `&amp;mut std::string::String`
+8 |     some_string.push_str(&quot;-Michel&quot;);
+  |     ^^^^^^^^^^^ `some_string` is a `&amp;` reference, so the data it refers to cannot be borrowed as mutable
+</code></pre>
+<p>Si on suis les indications du compilateur voilà ce que ça donne :</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    let mut s = String::from(&quot;Jean&quot;);
+
+    change(&amp;mut s);
+    println!(&quot;{}&quot;, s);
+}
+
+fn change(some_string: &amp;mut String) {
+    some_string.push_str(&quot;-Michel&quot;);
+}
+</code></pre></pre>
+<p>Il nous reste une dernière règle à comprendre pour saisir l'entièreté du concept. Comme dans un contexte de programmation concurente, Rust nous force en permanence à appliquer la politique lecteur/écrivains : </p>
+<pre><code class="language-rust does_not_compile ignore">let mut s = String::from(&quot;Damnit!&quot;);
+
+let r1 = &amp;mut s;
+let r2 = &amp;mut s;
+
+println!(&quot;{}, {}&quot;, r1, r2);
+</code></pre>
+<pre><code>   Compiling playground v0.0.1 (/playground)
+error[E0499]: cannot borrow `s` as mutable more than once at a time
+ --&gt; src/main.rs:7:10
+  |
+6 | let r1 = &amp;mut s;
+  |          ------ first mutable borrow occurs here
+7 | let r2 = &amp;mut s;
+  |          ^^^^^^ second mutable borrow occurs here
+8 | 
+9 | println!(&quot;{}, {}&quot;, r1, r2);
+  |                    -- first borrow later used here
+</code></pre>
+<p>Comme pour les bases de données et la synchronisation de ressources dans un contexte de programmation concurrente Rust force l'utilisation du modèle lecteur/écrivaint. Il est donc possible d'avoir autant de référence immutable vers une valeur qu'on le souhaite mais une et une seule référence mutable.</p>
+<h2><a class="header" href="#validité" id="validité">Validité</a></h2>
+<pre><code class="language-rust does_not_compile ignore">fn main() {
+    let reference_to_nothing = dangle();
+}
+
+fn dangle() -&gt; &amp;String {
+    let s = String::from(&quot;hello&quot;);
+
+    &amp;s
+}
+</code></pre>
+<p>Ici on voit bien que la variable <code>s</code> va être supprimée par le <em>borrow checker</em> après l'éxécution de <code>dangle()</code>. La référence <code>&amp;s</code> n'est donc pas valide, ça ne compile pas.</p>
+<pre><code>error[E0106]: missing lifetime specifier
+ --&gt; src/main.rs:5:16
+  |
+5 | fn dangle() -&gt; &amp;String {
+  |                ^ help: consider giving it a 'static lifetime: `&amp;'static`
+  |
+  = help: this function's return type contains a borrowed value, but there is no value for it to be borrowed from
+</code></pre>
+<p>On ne va pas s'attarder sur le concept de de validité pour l'instant, sachez simplement qu'il est possible d'indiquer au compilateur de façon explicite la durée de validité d'une référence avec les <em>lifetime</em>.</p>
+<h2><a class="header" href="#résumé" id="résumé">Résumé</a></h2>
+<p>Comme la propriété, l'emprunt est régi par des règle simples :</p>
+<ul>
+<li>À tout moment, il est possible d'avoir soit <em>une et une seule</em> référence mutable ou n'importe quel nombre de référence immutable.</li>
+<li>Une référence doit toujours être valide.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ch03_borrow.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch05_intro_part2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="ch03_borrow.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="ch05_intro_part2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="ferris.js"></script>
+        
+
+        
+
+    </body>
+</html>
