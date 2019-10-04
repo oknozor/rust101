@@ -11,9 +11,9 @@ Les amateurs de C doivent certainement comprendre de quoi on parle ici.
 En C on peut faire a peu près ce qu'on veut, si on introduit un bug ce faisant on aura le droit à une jolie *Segmetation fault* sans plus d'information, il ne nous reste plus que GDB pour nous en sortir, pire, on ne verra peut être pas le bug tout de suite.
 C'est ce qui rend C aussi puissant mais également si difficile à maitriser.
 
-En revanche en Java un certain nombre d'erreurs prédéfinies peuvent advenir au runtime et on aura bien souvent une indication précise sur l'origine du problème.
+En revanche Java est dit *memory safe* car un certain nombre d'erreurs prédéfinies peuvent advenir au runtime et on aura bien souvent une indication précise sur l'origine du problème.
 
-Rust est donc un language dit *memory safe*, mais il pousse le concept un peu plus loin : l'énorme différence avec ce qu'on connaissait jusque là, c'est que les erreurs de mémoires sont vérifiées à la compilation pas au runtime. Comme le dit un vieux proverbe rustaceen :  
+Rust est également un language *memory safe*, mais il pousse le concept un peu plus loin : l'énorme différence avec ce qu'on connaissait jusque là, c'est que les erreurs de mémoires sont vérifiées à la compilation pas au runtime. Comme le dit un vieux proverbe rustaceen :  
 
 > *"The safest program is the program that doesn't compile"*
 

@@ -1,5 +1,3 @@
-
-
 # Borrow Cheking
 
 ## Les références 
@@ -11,7 +9,7 @@ fn main() {
     let raffarinade = String::from("Je vous recommande la positive attitude.");
     let (s2, len) = calculate_string_len(raffarinade);
 
-    println!("Cette raffarinade: \"{}\", contient {} caractèress", s2, len);
+    println!("Cette raffarinade: \"{}\", contient {} caractères", s2, len);
 }
 
 fn calculate_string_len(s: String) -> (String, usize) {
@@ -28,7 +26,7 @@ fn main() {
     let raffarinade = String::from("La faiblesse de vocabulaire signifie la faiblesse de penser.");
     let len = calculate_string_len(&raffarinade);
 
-    println!("Cette raffarinade: \"{}\", contient {} caractèress", raffarinade, len);
+    println!("Cette raffarinade: \"{}\", contient {} caractères", raffarinade, len);
 }
 
 fn calculate_string_len(s: &String) -> usize {
@@ -66,7 +64,7 @@ error[E0596]: cannot borrow `*some_string` as mutable, as it is behind a `&` ref
   |     ^^^^^^^^^^^ `some_string` is a `&` reference, so the data it refers to cannot be borrowed as mutable
 ```
 
-Si on suis les indication du compilateur voilà ce que ça donne : 
+Si on suis les indications du compilateur voilà ce que ça donne :
 
 ```rust
 fn main() {
@@ -105,7 +103,7 @@ error[E0499]: cannot borrow `s` as mutable more than once at a time
   |                    -- first borrow later used here
 ```
 
-Comme pour les bases de données et la synchronisation de ressources dans un contexte de programmation concurrente Rust force l'utilisation du modèle lecteur/écrivaint. Il est donc possible d'avoir autant de référence immutable vers une valeur qu'on le souhaite mais une et une seule référence immutable.
+Comme pour les bases de données et la synchronisation de ressources dans un contexte de programmation concurrente Rust force l'utilisation du modèle lecteur/écrivaint. Il est donc possible d'avoir autant de référence immutable vers une valeur qu'on le souhaite mais une et une seule référence mutable.
 
 ## Validité 
 ``` rust, does_not_compile, ignore
@@ -132,11 +130,11 @@ error[E0106]: missing lifetime specifier
   = help: this function's return type contains a borrowed value, but there is no value for it to be borrowed from
 ```
 
-On ne va pas s'attarder sur le concept de de validité ici, sachez simplement qu'il est possible d'indiquer au compilateur de façon explicite la durée de validité d'une référence avec les *lifetime*.
+On ne va pas s'attarder sur le concept de de validité pour l'instant, sachez simplement qu'il est possible d'indiquer au compilateur de façon explicite la durée de validité d'une référence avec les *lifetime*.
 
 ## Résumé
 
 Comme la propriété, l'emprunt est régi par des règle simples :
 
 - À tout moment, il est possible d'avoir soit *une et une seule* référence mutable ou n'importe quel nombre de référence immutable.
-- Une référence doit toujours être valide. 
+- Une référence doit toujours être valide.

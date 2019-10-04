@@ -1,6 +1,6 @@
 # Rust, un language mutli-paradigme
 
-Un des gros avantages du language et également un des point les plus déroutant pour les nouveaux arrivant est le caractère multi-paradigme de Rust. 
+Un des gros avantages du language, et également un des point les plus déroutant pour les nouveaux arrivant, c'est le caractère multi-paradigme de Rust.
 
 Mais qu'est ce qu'on veut dire par là au juste ? 
 
@@ -33,7 +33,7 @@ Pour les développeurs qui connaissent Haskell, le concept sera relativement fac
         Other
     }
 
-    let salut_michel = Message::Greeting("michel");
+    let salut_michel = Message::Greeting("michel".to_owned());
 
     match salut_michel {
         Message::Greeting(prenom)    => println!("Salut {}", prenom),
@@ -44,11 +44,11 @@ Pour les développeurs qui connaissent Haskell, le concept sera relativement fac
 
 ## Inférence de type
 
-En rust les types sont statiques mais optionnel lorsque le compilateur parvient à les inférerers. 
+En rust les types sont statiques mais optionnels lorsque le compilateur parvient à les inférerers.
 
 ```rust
 # fn main() {
-    let x = 42; 
+    let x: i32 = 42;
     let y = x + 9;
 
     println!("bienvenue dans la zone {}", y);

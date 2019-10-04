@@ -21,18 +21,19 @@ Si on traduit tout ça en bon français voilà ce que ça donne :
 
 - Des performances comparable à C
 - Pas de bug au runtime (dangling pointer, wild pointer, memory leak...etc)
-- Pas de situation de competition dans les contextes concurrent/multitache
+- Pas de situation de competition dans les contextes concurrents/multitaches
 - Un écosystème à l'état de l'art
 
 ## Quelques usage emblématiques
 
-- Firefox 
-- Libra 
+- Firefox
+- [Servo](https://github.com/servo/servo)
+- [Libra](https://github.com/libra/libra)
 - Npm 
-- Webassambly
-- Yelp 
-- Sozu
-- Xi 
-- Redox
+- Webassembly
+- Yelp
+- [Sozu](https://github.com/sozu-proxy/sozu)
+- [Xi](https://github.com/xi-editor/xi-editor)
+- [Redox](https://www.redox-os.org/)
 
 Et bientôt Microsoft :) 
