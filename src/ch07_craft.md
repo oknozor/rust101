@@ -1,6 +1,6 @@
 # Software Craft
 
-Évoque le [software craft](http://manifesto.softwarecraftsmanship.org/) ici n'est peut être pas complètement adapté mais il serait difficile de ne pas y référer tant Rust s'éforce d'encourager certaines pratique qui gravite autour du craft et des méthodes agiles: TDD, Documentation as code, Doc test, CI-CD ...etc.
+Évoquer le [software craft](http://manifesto.softwarecraftsmanship.org/) ici n'est peut être pas complètement adapté mais il serait difficile de ne pas y référer tant Rust s'éforce d'encourager certaines pratiques qui gravitent autour du craft et des méthodes agiles: TDD, Documentation as code, Doc test, CI-CD ...etc.
 
 
 ## Écrire de la documentation
@@ -25,6 +25,11 @@ mod tests {
 ```
 
 Si vous avez l'habitude d'écrire des tests, vous allez rapidement remarquer qu'en Rust on écrit bien souvent les tests unitaires directement à côté du code fonctionnel. Cette pratique à l'avantage de documenter le code fonctionnel directement dans le même fichier. Lorsque le programe est compilé les tests sont compilé dans un exécutable séparé et ne viendrons pas polluer notre code de production.
+
+
+## Benchmarks
+
+En plus des tests rust permet via l'anotation `#bench` de tester les performance d'une section de code, on peut ainsi tracer facilement les régression/amélioration de performance dans une base de code.
 
 ## Doc test
 
